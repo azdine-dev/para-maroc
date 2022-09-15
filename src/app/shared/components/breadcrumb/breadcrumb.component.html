@@ -14,10 +14,10 @@
             <a [routerLink]="['../' + prev.slug]" class="product-pager-link product-pager-prev"
                 [class]="{'prev-only': !next}" *ngIf="prev">
                 <i class="icon-angle-left"></i>
-                <span>Prev</span>
+                <span>Précédent</span>
                 <div class="product-detail">
                     <figure class="overflow-hidden">
-                        <molla-image [src]="SERVER_URL + prev.sm_pictures[0].url" alt="Product" class="product-image">
+                        <molla-image [src]="prev.sm_pictures[0].url" alt="Product" class="product-image">
                         </molla-image>
                     </figure>
                     <h3 class="product-name">{{ prev.name }}</h3>
@@ -25,11 +25,11 @@
             </a>
 
             <a [routerLink]="['../' + next.slug]" class="product-pager-link product-pager-next" *ngIf="next">
-                <span>Next</span>
+                <span>Suivant</span>
                 <i class="icon-angle-right"></i>
                 <div class="product-detail">
                     <figure class="overflow-hidden">
-                        <molla-image [src]="SERVER_URL + next.sm_pictures[0].url" alt="Product" class="product-image">
+                        <molla-image [src]="next.sm_pictures[0].url" alt="Product" class="product-image">
                         </molla-image>
                     </figure>
                     <h3 class="product-name">{{ next.name }}</h3>

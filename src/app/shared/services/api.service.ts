@@ -93,7 +93,7 @@ export class ApiService {
    */
   public getSingleProduct(slug: string, isQuickView = false): Observable<any> {
     return this.http.get(
-      `${environment.SERVER_URL}/products/${slug}?demo=${environment.demo}&isQuickView=${isQuickView}`
+      `${environment.SERVER_URL}/api/products/${slug}?demo=${environment.demo}&isQuickView=${isQuickView}`
     );
   }
 

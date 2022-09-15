@@ -26,15 +26,13 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": true,
-            "assets": [
-              "src/favicon.ico",
-              "src/assets",
-              "src/.htaccess"
-            ],
+            "assets": ["src/favicon.ico", "src/assets", "src/.htaccess"],
             "styles": [
               "src/assets/css/bootstrap.min.css",
               "src/assets/css/fonts-molla.min.css",
-              "src/styles.scss"
+              "src/styles.scss",
+              "./node_modules/ngx-sharebuttons/themes/circles/circles-light-theme.scss",
+              "./node_modules/ngx-sharebuttons/themes/modern/modern-dark-theme.scss"
             ],
             "scripts": [
               "src/assets/js/jquery.min.js",
@@ -104,10 +102,7 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               "src/assets/css/bootstrap.min.css",
               "src/assets/css/fonts-molla.min.css",
@@ -124,9 +119,7 @@
               "tsconfig.spec.json",
               "e2e/tsconfig.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {

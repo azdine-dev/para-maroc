@@ -11,43 +11,42 @@ import { SidebarPageComponent } from './sidebar/sidebar.component';
 import { StickyInfoPageComponent } from './sticky-info/sticky-info.component';
 
 const routes: Routes = [
-    {
-        path: 'default/:slug',
-        component: DefaultPageComponent
-    },
-    {
-        path: 'centered/:slug',
-        component: CenteredPageComponent
-    },
-    {
-        path: 'extended/:slug',
-        component: ExtendedPageComponent
-    },
-    {
-        path: 'fullwidth/:slug',
-        component: FullWidthPageComponent
-    },
-    {
-        path: 'gallery/:slug',
-        component: GalleryPageComponent
-    },
-    {
-        path: 'masonry/:slug',
-        component: MasonryPageComponent
-    },
-    {
-        path: 'sidebar/:slug',
-        component: SidebarPageComponent
-    },
-    {
-        path: 'sticky/:slug',
-        component: StickyInfoPageComponent
-    }
-]
+  {
+    path: ':slug',
+    component: DefaultPageComponent,
+  },
+  {
+    path: 'centered/:slug',
+    component: CenteredPageComponent,
+  },
+  {
+    path: 'extended/:slug',
+    component: ExtendedPageComponent,
+  },
+  {
+    path: 'fullwidth/:slug',
+    component: FullWidthPageComponent,
+  },
+  {
+    path: 'gallery/:slug',
+    component: GalleryPageComponent,
+  },
+  {
+    path: 'masonry/:slug',
+    component: MasonryPageComponent,
+  },
+  {
+    path: 'sidebar/:slug',
+    component: SidebarPageComponent,
+  },
+  {
+    path: 'sticky/:slug',
+    component: StickyInfoPageComponent,
+  },
+];
 
 @NgModule({
-    imports: [RouterModule.forChild(routes)],
-    exports: [RouterModule]
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule],
 })
-
-export class ProductRoutingModule { };
+export class ProductRoutingModule {}

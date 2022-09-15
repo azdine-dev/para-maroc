@@ -33,51 +33,52 @@ import { InfoThreeComponent } from './shared/info-tabs/info-three/info-three.com
 import { RelatedProductsOneComponent } from './shared/related-products/related-products-one/related-products-one.component';
 import { RelatedProductsTwoComponent } from './shared/related-products/related-products-two/related-products-two.component';
 import { ToggleSidebarComponent } from './shared/toggle-sidebar/toggle-sidebar.component';
+import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
+import { ShareIconsModule } from 'ngx-sharebuttons/icons';
 
 @NgModule({
-	declarations: [
-		DefaultPageComponent,
-		CenteredPageComponent,
-		ExtendedPageComponent,
-		GalleryPageComponent,
-		StickyInfoPageComponent,
-		SidebarPageComponent,
-		FullWidthPageComponent,
-		MasonryPageComponent,
+  declarations: [
+    DefaultPageComponent,
+    CenteredPageComponent,
+    ExtendedPageComponent,
+    GalleryPageComponent,
+    StickyInfoPageComponent,
+    SidebarPageComponent,
+    FullWidthPageComponent,
+    MasonryPageComponent,
 
-		GalleryDefaultComponent,
-		GalleryExtendComponent,
-		GalleryStickyComponent,
-		GalleryMasonryComponent,
+    GalleryDefaultComponent,
+    GalleryExtendComponent,
+    GalleryStickyComponent,
+    GalleryMasonryComponent,
 
-		DetailOneComponent,
-		DetailTwoComponent,
-		DetailThreeComponent,
+    DetailOneComponent,
+    DetailTwoComponent,
+    DetailThreeComponent,
 
-		InfoOneComponent,
-		InfoTwoComponent,
-		InfoThreeComponent,
+    InfoOneComponent,
+    InfoTwoComponent,
+    InfoThreeComponent,
 
-		RelatedProductsOneComponent,
-		RelatedProductsTwoComponent,
-		ToggleSidebarComponent,
-	],
+    RelatedProductsOneComponent,
+    RelatedProductsTwoComponent,
+    ToggleSidebarComponent,
+  ],
 
-	imports: [
-		CommonModule,
-		ProductRoutingModule,
-		SharedModule,
-		RouterModule,
-		NgbModule,
-		OwlModule,
-		LightboxModule,
-	],
+  imports: [
+    CommonModule,
+    ProductRoutingModule,
+    SharedModule,
+    RouterModule,
+    NgbModule,
+    OwlModule,
+    LightboxModule,
+    ShareButtonsModule,
+    ShareIconsModule,
+  ],
 
-	exports: [],
+  exports: [],
 
-	providers: [
-		NgbModal
-	]
+  providers: [NgbModal],
 })
-
-export class ProductModule { }
+export class ProductModule {}
