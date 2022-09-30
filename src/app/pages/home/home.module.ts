@@ -10,22 +10,25 @@ import { SpecialCollectionComponent } from './special-collection/special-collect
 import { TopCollectionComponent } from './top-collection/top-collection.component';
 import { IndexComponent } from './index/index.component';
 import { BlogCollectionComponent } from './blog-collection/blog-collection.component';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 @NgModule({
-	declarations: [
-		SpecialCollectionComponent,
-		TopCollectionComponent,
-		IndexComponent,
-		BlogCollectionComponent
-	],
+  declarations: [
+    SpecialCollectionComponent,
+    TopCollectionComponent,
+    IndexComponent,
+    BlogCollectionComponent,
+  ],
 
-	imports: [
-		CommonModule,
-		RouterModule,
-		NgbModule,
-		OwlModule,
-		SharedModule
-	]
+  imports: [
+    CommonModule,
+    RouterModule,
+    NgbModule,
+    OwlModule,
+    SharedModule,
+    SlickCarouselModule,
+    CarouselModule,
+  ],
 })
-
-export class HomeModule { }
+export class HomeModule {}

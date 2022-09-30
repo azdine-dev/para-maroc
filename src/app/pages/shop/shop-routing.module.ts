@@ -12,64 +12,61 @@ import { ProductCategoryBoxedPageComponent } from './product-category-boxed/prod
 import { ProductCategoryFluidPageComponent } from './product-category-fluid/product-category-fluid.component';
 
 const routes: Routes = [
-	{
-		path: 'sidebar/:type',
-		component: SidebarPageComponent
-	},
-	{
-		path: 'sidebar',
-		pathMatch: 'full',
-		redirectTo: 'sidebar/list'
-	},
-	{
-		path: '',
-		pathMatch: 'full',
-		redirectTo: 'sidebar/list'
-	},
-	{
-		path: 'nosidebar/:type',
-		component: NosidebarPageComponent
-	},
-	{
-		path: 'nosidebar',
-		pathMatch: 'full',
-		redirectTo: 'nosidebar/boxed'
-	},
-	{
-		path: 'market',
-		component: MarketPageComponent
-	},
-	{
-		path: 'cart',
-		component: CartComponent
-	},
-	{
-		path: 'wishlist',
-		component: WishlistComponent
-	},
-	{
-		path: 'checkout',
-		component: CheckoutComponent
-	},
-	{
-		path: 'dashboard',
-		component: DashboardComponent
-	},
-	{
-		path: 'category/boxed',
-		component: ProductCategoryBoxedPageComponent
-	},
-	{
-		path: 'category/fullwidth',
-		component: ProductCategoryFluidPageComponent
-	}
+  {
+    path: 'product/:type',
+    component: SidebarPageComponent,
+  },
+  {
+    path: 'sidebar',
+    pathMatch: 'full',
+    redirectTo: 'sidebar/list',
+  },
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'sidebar/list',
+  },
+  {
+    path: 'nosidebar/:type',
+    component: NosidebarPageComponent,
+  },
+  {
+    path: 'nosidebar',
+    pathMatch: 'full',
+    redirectTo: 'nosidebar/boxed',
+  },
+  {
+    path: 'market',
+    component: MarketPageComponent,
+  },
+  {
+    path: 'cart',
+    component: CartComponent,
+  },
+  {
+    path: 'wishlist',
+    component: WishlistComponent,
+  },
+  {
+    path: 'checkout',
+    component: CheckoutComponent,
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+  },
+  {
+    path: 'category/boxed',
+    component: ProductCategoryBoxedPageComponent,
+  },
+  {
+    path: 'category/fullwidth',
+    component: ProductCategoryFluidPageComponent,
+  },
 ];
 
-@NgModule( {
-	imports: [ RouterModule.forChild( routes ) ],
-	exports: [ RouterModule ]
-} )
-
-
-
-export class ShopRoutingModule { };
+@NgModule({
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule],
+})
+export class ShopRoutingModule {}

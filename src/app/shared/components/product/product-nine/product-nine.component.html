@@ -2,7 +2,7 @@
   <div class="row pr-2">
     <div class="col-lg-3 col-md-3 col-6">
       <figure class="product-media">
-        <span class="product-label label-new" *ngIf="product.new">New</span>
+        <span class="product-label label-new" *ngIf="product.new">Nouveau</span>
         <span class="product-label label-sale" *ngIf="product.sale_price"
           >Sale</span
         >
@@ -10,12 +10,12 @@
         <span
           class="product-label label-out"
           *ngIf="!product.stock || product.stock == 0"
-          >Out Of Stock</span
+          >En rupture de stock</span
         >
 
-        <a [routerLink]="['/product/default/' + product.slug]">
+        <a [routerLink]="['/product/' + product.slug]">
           <molla-image
-            [src]="SERVER_URL + product.sm_pictures[0].url"
+            [src]="product.sm_pictures[0].url"
             alt="Product"
             [width]="product.sm_pictures[0].width"
             [height]="product.sm_pictures[0].height"
@@ -24,7 +24,7 @@
           >
           </molla-image>
           <molla-image
-            [src]="SERVER_URL + product.sm_pictures[1].url"
+            [src]="product.sm_pictures[1].url"
             alt="Product"
             class="product-image-hover"
             *ngIf="product.sm_pictures[1]"
@@ -39,7 +39,7 @@
         <div class="product-cat">
           <span *ngFor="let cat of product.categories; let i = index">
             <a
-              [routerLink]="['/shop/sidebar/list']"
+              [routerLink]="['/shop/product/list']"
               [queryParams]="{ category: cat.slug }"
               >{{ cat.name }}</a
             >
@@ -48,9 +48,7 @@
         </div>
 
         <h3 class="product-title">
-          <a [routerLink]="['/product/default/' + product.slug]">{{
-            product.name
-          }}</a>
+          <a [routerLink]="['/product/' + product.slug]">{{ product.name }}</a>
         </h3>
 
         <div class="product-content">
@@ -67,7 +65,7 @@
               [style.backgroundColor]="item.color"
               *ngFor="let item of product.variants"
             >
-              <span class="sr-only">Color name</span></a
+              <span class="sr-only">Couleur</span></a
             >
           </div>
         </div>
@@ -80,7 +78,9 @@
           class="product-price"
           *ngIf="!product.stock || product.stock == 0; else elseBlock"
         >
-          <span class="out-price">${{ product.price.toFixed(2) }}</span>
+          <span class="out-price">{{
+            product.price.toFixed(2) | currency: "MAD"
+          }}</span>
         </div>
 
         <ng-template #elseBlock>
@@ -88,19 +88,25 @@
             class="product-price"
             *ngIf="minPrice == maxPrice; else elseBlock"
           >
-            ${{ minPrice.toFixed(2) }}
+            {{ minPrice.toFixed(2) | currency: "MAD" }}
           </div>
           <ng-template #elseBlock>
             <div
               class="product-price"
               *ngIf="product.variants.length == 0; else elseBlock"
             >
-              <span class="new-price">${{ minPrice.toFixed(2) }}</span>
-              <span class="old-price">${{ maxPrice.toFixed(2) }}</span>
+              <span class="new-price">{{
+                minPrice.toFixed(2) | currency: "MAD"
+              }}</span>
+              <span class="old-price">{{
+                maxPrice.toFixed(2) | currency: "MAD"
+              }}</span>
             </div>
             <ng-template #elseBlock>
               <div class="product-price">
-                ${{ minPrice.toFixed(2) }}&ndash;${{ maxPrice.toFixed(2) }}
+                {{ minPrice.toFixed(2) | currency: "MAD" }}&ndash;{{
+                  maxPrice.toFixed(2) | currency: "MAD"
+                }}
               </div>
             </ng-template>
           </ng-template>
@@ -135,15 +141,15 @@
         </div>
 
         <a
-          [routerLink]="['/product/default/' + product.slug]"
+          [routerLink]="['/product/' + product.slug]"
           class="btn-product btn-cart btn-select"
           *ngIf="product.variants.length > 0; else cartBlock"
         >
-          <span>select options</span>
+          <span>Sélectionnez les options</span>
         </a>
         <ng-template #cartBlock>
           <button class="btn-product btn-cart" (click)="addToCart($event)">
-            <span>add to cart</span>
+            <span>Ajouter au panier</span>
           </button>
         </ng-template>
       </div>

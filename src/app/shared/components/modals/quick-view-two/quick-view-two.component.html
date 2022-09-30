@@ -227,7 +227,7 @@
               <span>Category:</span>
               <span *ngFor="let cat of product.categories; let i = index">
                 <a
-                  [routerLink]="['/shop/sidebar/list']"
+                  [routerLink]="['/shop/product/list']"
                   (click)="closeQuickView()"
                   [queryParams]="{ category: cat.slug }"
                   >{{ cat.name }}</a

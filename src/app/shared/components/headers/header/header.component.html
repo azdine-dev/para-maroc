@@ -1,45 +1,22 @@
 <header class="header header-intro-clearance header-1">
   <div class="header-top">
     <div [class]="containerClass">
-      <div class="header-left overflow-hidden mr-3 mr-sm-0">
+      <div class="header-left overflow-hidden ml-5 mr-sm-0 header-phone">
         <div class="welcome-msg d-flex flex-nowrap">
-          <p>Special collection already available.</p>
-          <a href="javascript:;">&nbsp;Read more ...</a>
+          <p>
+            Pour toute information complémentaire veuillez nous contacter sur
+            +212620744118
+          </p>
         </div>
       </div>
 
       <div class="header-right">
         <ul class="top-menu">
           <li>
-            <a href="javascript:;">Links</a>
+            <a href="javascript:;">Liens</a>
             <ul>
-              <!-- <li>
-                                <div class="header-dropdown">
-                                    <a href="javascript:;">USD</a>
-                                    <div class="header-menu">
-                                        <ul>
-                                            <li><a href="javascript:;">Eur</a></li>
-                                            <li><a href="javascript:;">Usd</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li> -->
-              <!-- <li>
-                                <div class="header-dropdown">
-                                    <a href="javascript:;">English</a>
-                                    <div class="header-menu">
-                                        <ul>
-                                            <li><a href="javascript:;">English</a></li>
-                                            <li><a href="javascript:;">French</a></li>
-                                            <li><a href="javascript:;">Spanish</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li> -->
-              <li class="login">
-                <a href="javascript:;" (click)="showLoginModal($event)"
-                  >Sign in / Sign up</a
-                >
+              <li class="contact">
+                <a routerLink="/pages/contact">Nous Contacter</a>
               </li>
             </ul>
           </li>
@@ -68,17 +45,17 @@
       </div>
 
       <div class="header-right">
-        <div class="account">
+        <!-- <div class="account">
           <a routerLink="/shop/dashboard" title="My account">
             <div class="icon">
               <i class="icon-user"></i>
             </div>
             <p>Account</p>
           </a>
-        </div>
+        </div> -->
+        <molla-social-menu></molla-social-menu>
 
         <molla-wishlist-menu></molla-wishlist-menu>
-
         <molla-cart-menu></molla-cart-menu>
       </div>
     </div>
@@ -95,18 +72,19 @@
       [class.fixed]="utilsService.isSticky"
     >
       <div [ngClass]="containerClass">
-        <div class="header-left">
-          <molla-category-menu style="display: contents"></molla-category-menu>
-        </div>
+        <!-- <div class="header-left"> -->
+        <!-- <molla-category-menu style="display: contents"></molla-category-menu> -->
+        <!-- </div> -->
 
         <div class="header-center">
-          <molla-main-menu></molla-main-menu>
+          <!-- <molla-main-menu></molla-main-menu> -->
+          <molla-difussion-menu></molla-difussion-menu>
         </div>
 
-        <div class="header-right">
+        <!-- <div class="header-right">
           <i class="icon-medapps"></i>
           <p>Clearance<span class="highlight">&nbsp;Up to 30% Off</span></p>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>

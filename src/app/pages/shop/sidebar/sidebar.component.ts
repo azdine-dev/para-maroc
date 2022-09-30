@@ -12,83 +12,111 @@ import { UtilsService } from 'src/app/shared/services/utils.service';
 
 export class SidebarPageComponent implements OnInit {
 	products = [];
-	perPage = 12;
-	type = 'list';
-	totalCount = 0;
-	orderBy = 'default';
-	pageTitle = 'List';
-	toggle = false;
-	searchTerm = '';
-	loaded = false;
-	firstLoad = false;
+  category = {
+    name: '',
+    count: 0,
+  };
+  subCategories = [];
+  brands = [];
+  perPage = 12;
+  type = 'list';
+  totalCount = 0;
+  orderBy = 'default';
+  pageTitle = 'List de tous les produits';
+  toggle = false;
+  searchTerm = '';
+  loaded = false;
+  firstLoad = false;
 
-	constructor(public activeRoute: ActivatedRoute, public router: Router, public utilsService: UtilsService, public apiService: ApiService) {
-		this.activeRoute.params.subscribe(params => {
-			this.type = params['type'];
+  constructor(
+    public activeRoute: ActivatedRoute,
+    public router: Router,
+    public utilsService: UtilsService,
+    public apiService: ApiService
+  ) {
+    this.activeRoute.params.subscribe((params) => {
+      this.type = params['type'];
 
-			if (this.type == 'list') {
-				this.pageTitle = 'List';
-			} else if (this.type == '2cols') {
-				this.pageTitle = 'Grid 2 Columns';
-			} else if (this.type == '3cols') {
-				this.pageTitle = 'Grid 3 Columns';
-			} else if (this.type == '4cols') {
-				this.pageTitle = 'Grid 4 Columns';
-			}
-		});
-		
-		this.activeRoute.queryParams.subscribe(params => {
-			this.loaded = false;
+      // if (this.type == 'list') {
+      //   this.pageTitle = 'List';
+      // } else if (this.type == '2cols') {
+      //   this.pageTitle = 'Grid 2 Columns';
+      // } else if (this.type == '3cols') {
+      //   this.pageTitle = 'Grid 3 Columns';
+      // } else if (this.type == '4cols') {
+      //   this.pageTitle = 'Grid 4 Columns';
+      // }
+    });
 
-			if (params['searchTerm']) {
-				this.searchTerm = params['searchTerm'];
-			} else {
-				this.searchTerm = '';
-			}
+    this.activeRoute.queryParams.subscribe((params) => {
+      this.loaded = false;
+      this.category.name = params['category'];
 
-			if (params['orderBy']) {
-				this.orderBy = params['orderBy'];
-			} else {
-				this.orderBy = 'default';
-			}
+      if (params['searchTerm']) {
+        this.searchTerm = params['searchTerm'];
+      } else {
+        this.searchTerm = '';
+      }
 
-			this.apiService.fetchShopData(params, this.perPage).subscribe(result => {
-				this.products = result.products;
-				this.totalCount = result.totalCount;
+      if (params['orderBy']) {
+        this.orderBy = params['orderBy'];
+      } else {
+        this.orderBy = 'default';
+      }
 
-				this.loaded = true;
-				if (!this.firstLoad) {
-					this.firstLoad = true;
-				}
+      this.apiService
+        .fetchShopData(params, this.perPage)
+        .subscribe((result) => {
+          this.products = result.products;
+          this.totalCount = result.totalCount;
+          if (this.category.name != '') {
+            this.category.count = this.totalCount;
+          }
+          this.loaded = true;
+          if (!this.firstLoad) {
+            this.firstLoad = true;
+          }
 
-				this.utilsService.scrollToPageContent();
-			})
-		})
-	}
+          this.utilsService.scrollToPageContent();
+        });
 
-	ngOnInit(): void {
-		if (window.innerWidth > 991) this.toggle = false;
-		else this.toggle = true;
-	}
+      this.apiService
+        .getCategoryData(this.category.name)
+        .subscribe((result) => {
+          this.subCategories = result?.categories?.sub_categories;
+          this.brands = result?.categories?.brands;
+        });
+    });
+  }
 
-	@HostListener('window: resize', ['$event'])
-	onResize(event: Event) {
-		if (window.innerWidth > 991) this.toggle = false;
-		else this.toggle = true;
-	}
+  ngOnInit(): void {
+    if (window.innerWidth > 991) this.toggle = false;
+    else this.toggle = true;
+  }
 
-	changeOrderBy(event: any) {
-		this.router.navigate([], { queryParams: { orderBy: event.currentTarget.value, page: 1 }, queryParamsHandling: 'merge' });
-	}
+  @HostListener('window: resize', ['$event'])
+  onResize(event: Event) {
+    if (window.innerWidth > 991) this.toggle = false;
+    else this.toggle = true;
+  }
 
-	toggleSidebar() {
-		if (document.querySelector('body').classList.contains('sidebar-filter-active'))
-			document.querySelector('body').classList.remove('sidebar-filter-active');
-		else
-			document.querySelector('body').classList.add('sidebar-filter-active');
-	}
+  changeOrderBy(event: any) {
+    this.router.navigate([], {
+      queryParams: { orderBy: event.currentTarget.value, page: 1 },
+      queryParamsHandling: 'merge',
+    });
+  }
 
-	hideSidebar() {
-		document.querySelector('body').classList.remove('sidebar-filter-active');
-	}
+  toggleSidebar() {
+    if (
+      document.querySelector('body').classList.contains('sidebar-filter-active')
+    )
+      document.querySelector('body').classList.remove('sidebar-filter-active');
+    else document.querySelector('body').classList.add('sidebar-filter-active');
+  }
+
+  hideSidebar() {
+    document.querySelector('body').classList.remove('sidebar-filter-active');
+  }
+
 }

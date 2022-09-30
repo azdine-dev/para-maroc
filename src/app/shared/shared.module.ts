@@ -73,6 +73,8 @@ import { PostTwoComponent } from './components/blog-post/post-two/post-two.compo
 import { PostThreeComponent } from './components/blog-post/post-three/post-three.component';
 import { PostFourComponent } from './components/blog-post/post-four/post-four.component';
 import { ParaMenuComponent } from './components/headers/shared/para-menu/para-menu.component';
+import { DifussionMenuComponent } from './components/headers/shared/difussion-menu/difussion-menu.component';
+import { SocialMenuComponent } from './components/headers/shared/social-menu/social-menu.component';
 
 @NgModule({
 	declarations: [
@@ -137,7 +139,9 @@ import { ParaMenuComponent } from './components/headers/shared/para-menu/para-me
 		PostThreeComponent,
 		PostFourComponent,
 		CountToComponent,
-  ParaMenuComponent
+  ParaMenuComponent,
+  DifussionMenuComponent,
+  SocialMenuComponent,
 	],
 
 	imports: [

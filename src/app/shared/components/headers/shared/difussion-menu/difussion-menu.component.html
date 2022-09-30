@@ -1,0 +1,660 @@
+<nav class="main-nav">
+  <ul class="menu sf-arrows">
+    <!-- Home -->
+
+    <li [class.active]="current.includes('')">
+      <a routerLink="" class=""><i class="icon-home"></i></a>
+    </li>
+
+    <li
+      [class.active]="current.includes('/shop/product/3cols?category=visage')"
+    >
+      <a routerLink="/shop/product/3cols?category=visage" class="">Visage</a>
+
+      <div class="megamenu megamenu-md visage">
+        <div class="row no-gutters">
+          <div class="col-md-8">
+            <div class="menu-col">
+              <div class="row">
+                <div class="col-md-6">
+                  <!-- <div class="menu-title">Shop with sidebar</div> -->
+                  <ul>
+                    <li [class.active]="current.includes('shop/product/list')">
+                      <a routerLink="/shop/product/list">Shop List</a>
+                    </li>
+                    <li [class.active]="current.includes('shop/product/2cols')">
+                      <a routerLink="/shop/product/2cols"
+                        >Shop Grid 2 Columns</a
+                      >
+                    </li>
+                    <li [class.active]="current.includes('shop/product/3cols')">
+                      <a routerLink="/shop/product/3cols"
+                        >Shop Grid 3 Columns</a
+                      >
+                    </li>
+                    <li [class.active]="current.includes('shop/product/4cols')">
+                      <a routerLink="/shop/product/4cols"
+                        >Shop Grid 4 Columns</a
+                      >
+                    </li>
+                    <li [class.active]="current.includes('shop/market')">
+                      <a routerLink="/shop/market">
+                        <span>
+                          Shop Market
+                          <span class="tip tip-new">New</span>
+                        </span>
+                      </a>
+                    </li>
+                  </ul>
+                  <ul>
+                    <li>
+                      <a routerLink="/shop/market"> Shop Market </a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="menu-title">Product Category</div>
+                  <div class="menu-title">Shop Pages</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="banner banner-overlay">
+              <a routerLink="/shop/product/list" class="banner banner-menu">
+                <img
+                  src="assets/images/menu/banner-1.jpg"
+                  alt="Banner"
+                  width="218"
+                  height="314"
+                />
+
+                <div class="banner-content banner-content-top">
+                  <div class="banner-title text-white">
+                    Last
+                    <br />Chance
+                    <br />
+                    <span>
+                      <strong>Sale</strong>
+                    </span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      [class.active]="
+        current.includes('/shop/product/3cols?category=maquillage')
+      "
+    >
+      <a routerLink="/shop/product/3cols?category=maquillage" class=""
+        >Maquillage</a
+      >
+
+      <div class="megamenu megamenu-md maquillage">
+        <div class="row no-gutters">
+          <div class="col-md-8">
+            <div class="menu-col">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="menu-title">
+                    <a href="/shop/product/3cols?category=maquillage">
+                      Shop with sidebar
+                    </a>
+                  </div>
+
+                  <div class="menu-title">Shop no sidebar</div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="menu-title">Product Category</div>
+                  <div class="menu-title">Shop Pages</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="banner banner-overlay">
+              <a routerLink="/shop/product/list" class="banner banner-menu">
+                <img
+                  src="assets/images/menu/banner-1.jpg"
+                  alt="Banner"
+                  width="218"
+                  height="314"
+                />
+
+                <div class="banner-content banner-content-top">
+                  <div class="banner-title text-white">
+                    Last
+                    <br />Chance
+                    <br />
+                    <span>
+                      <strong>Sale</strong>
+                    </span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+    <li [class.active]="current.includes('/shop/product/3cols?category=corps')">
+      <a routerLink="/shop/product/3cols?category=corps" class="">Corps</a>
+
+      <div class="megamenu megamenu-md corps">
+        <div class="row no-gutters">
+          <div class="col-md-8">
+            <div class="menu-col">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="menu-title">Shop with sidebar</div>
+
+                  <div class="menu-title">Shop no sidebar</div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="menu-title">Product Category</div>
+                  <div class="menu-title">Shop Pages</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="banner banner-overlay">
+              <a routerLink="/shop/product/list" class="banner banner-menu">
+                <img
+                  src="assets/images/menu/banner-1.jpg"
+                  alt="Banner"
+                  width="218"
+                  height="314"
+                />
+
+                <div class="banner-content banner-content-top">
+                  <div class="banner-title text-white">
+                    Last
+                    <br />Chance
+                    <br />
+                    <span>
+                      <strong>Sale</strong>
+                    </span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+
+    <li
+      [class.active]="
+        current.includes('/shop/product/3cols?category=mum-and-baby')
+      "
+    >
+      <a routerLink="/shop/product/3cols?category=mum-and-baby" class=""
+        >BÉBÉ & MAMAN</a
+      >
+
+      <div class="megamenu megamenu-md mum-and-baby">
+        <div class="row no-gutters">
+          <div class="col-md-8">
+            <div class="menu-col">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="menu-title">Shop with sidebar</div>
+
+                  <div class="menu-title">Shop no sidebar</div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="menu-title">Product Category</div>
+                  <div class="menu-title">Shop Pages</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="banner banner-overlay">
+              <a routerLink="/shop/product/list" class="banner banner-menu">
+                <img
+                  src="assets/images/menu/banner-1.jpg"
+                  alt="Banner"
+                  width="218"
+                  height="314"
+                />
+
+                <div class="banner-content banner-content-top">
+                  <div class="banner-title text-white">
+                    Last
+                    <br />Chance
+                    <br />
+                    <span>
+                      <strong>Sale</strong>
+                    </span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+
+    <li [class.active]="current.includes('/shop/product/3cols?category=hair')">
+      <a routerLink="/shop/product/3cols?category=hair" class="">Cheveux</a>
+
+      <div class="megamenu megamenu-md hair">
+        <div class="row no-gutters">
+          <div class="col-md-8">
+            <div class="menu-col">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="menu-title">Shop with sidebar</div>
+
+                  <div class="menu-title">Shop no sidebar</div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="menu-title">Product Category</div>
+                  <div class="menu-title">Shop Pages</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="banner banner-overlay">
+              <a routerLink="/shop/product/list" class="banner banner-menu">
+                <img
+                  src="assets/images/menu/banner-1.jpg"
+                  alt="Banner"
+                  width="218"
+                  height="314"
+                />
+
+                <div class="banner-content banner-content-top">
+                  <div class="banner-title text-white">
+                    Last
+                    <br />Chance
+                    <br />
+                    <span>
+                      <strong>Sale</strong>
+                    </span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+
+    <li [class.active]="current.includes('/shop/product/3cols?category=man')">
+      <a routerLink="/shop/product/3cols?category=man" class="">Homme</a>
+
+      <div class="megamenu megamenu-md man">
+        <div class="row no-gutters">
+          <div class="col-md-8">
+            <div class="menu-col">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="menu-title">Shop with sidebar</div>
+
+                  <div class="menu-title">Shop no sidebar</div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="menu-title">Product Category</div>
+                  <div class="menu-title">Shop Pages</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="banner banner-overlay">
+              <a routerLink="/shop/product/list" class="banner banner-menu">
+                <img
+                  src="assets/images/menu/banner-1.jpg"
+                  alt="Banner"
+                  width="218"
+                  height="314"
+                />
+
+                <div class="banner-content banner-content-top">
+                  <div class="banner-title text-white">
+                    Last
+                    <br />Chance
+                    <br />
+                    <span>
+                      <strong>Sale</strong>
+                    </span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+
+    <li
+      [class.active]="current.includes('/shop/product/3cols?category=minceur')"
+    >
+      <a routerLink="/shop/product/3cols?category=minceur" class="">Minceur</a>
+
+      <div class="megamenu megamenu-md minceur">
+        <div class="row no-gutters">
+          <div class="col-md-8">
+            <div class="menu-col">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="menu-title">Shop with sidebar</div>
+
+                  <div class="menu-title">Shop no sidebar</div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="menu-title">Product Category</div>
+                  <div class="menu-title">Shop Pages</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="banner banner-overlay">
+              <a routerLink="/shop/product/list" class="banner banner-menu">
+                <img
+                  src="assets/images/menu/banner-1.jpg"
+                  alt="Banner"
+                  width="218"
+                  height="314"
+                />
+
+                <div class="banner-content banner-content-top">
+                  <div class="banner-title text-white">
+                    Last
+                    <br />Chance
+                    <br />
+                    <span>
+                      <strong>Sale</strong>
+                    </span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+
+    <li
+      [class.active]="current.includes('/shop/product/3cols?category=hygiene')"
+    >
+      <a routerLink="/shop/product/3cols?category=hygiene" class="">Hygiène</a>
+
+      <div class="megamenu megamenu-md hygiene">
+        <div class="row no-gutters">
+          <div class="col-md-8">
+            <div class="menu-col">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="menu-title">Shop with sidebar</div>
+
+                  <div class="menu-title">Shop no sidebar</div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="menu-title">Product Category</div>
+                  <div class="menu-title">Shop Pages</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="banner banner-overlay">
+              <a routerLink="/shop/product/list" class="banner banner-menu">
+                <img
+                  src="assets/images/menu/banner-1.jpg"
+                  alt="Banner"
+                  width="218"
+                  height="314"
+                />
+
+                <div class="banner-content banner-content-top">
+                  <div class="banner-title text-white">
+                    Last
+                    <br />Chance
+                    <br />
+                    <span>
+                      <strong>Sale</strong>
+                    </span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+
+    <li
+      [class.active]="current.includes('/shop/product/3cols?category=solaire')"
+    >
+      <a routerLink="/shop/product/3cols?category=solaire" class="">Solaire</a>
+
+      <div class="megamenu megamenu-md solaire">
+        <div class="row no-gutters">
+          <div class="col-md-8">
+            <div class="menu-col">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="menu-title">Shop with sidebar</div>
+
+                  <div class="menu-title">Shop no sidebar</div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="menu-title">Product Category</div>
+                  <div class="menu-title">Shop Pages</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="banner banner-overlay">
+              <a routerLink="/shop/product/list" class="banner banner-menu">
+                <img
+                  src="assets/images/menu/banner-1.jpg"
+                  alt="Banner"
+                  width="218"
+                  height="314"
+                />
+
+                <div class="banner-content banner-content-top">
+                  <div class="banner-title text-white">
+                    Last
+                    <br />Chance
+                    <br />
+                    <span>
+                      <strong>Sale</strong>
+                    </span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+
+    <li
+      [class.active]="
+        current.includes('/shop/product/3cols?category=vitamines')
+      "
+    >
+      <a routerLink="/shop/product/3cols?category=vitamines" class=""
+        >Vitamines</a
+      >
+
+      <div class="megamenu megamenu-md vitamines">
+        <div class="row no-gutters">
+          <div class="col-md-8">
+            <div class="menu-col">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="menu-title">Shop with sidebar</div>
+
+                  <div class="menu-title">Shop no sidebar</div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="menu-title">Product Category</div>
+                  <div class="menu-title">Shop Pages</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="banner banner-overlay">
+              <a routerLink="/shop/product/list" class="banner banner-menu">
+                <img
+                  src="assets/images/menu/banner-1.jpg"
+                  alt="Banner"
+                  width="218"
+                  height="314"
+                />
+
+                <div class="banner-content banner-content-top">
+                  <div class="banner-title text-white">
+                    Last
+                    <br />Chance
+                    <br />
+                    <span>
+                      <strong>Sale</strong>
+                    </span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+
+    <li
+      [class.active]="current.includes('/shop/product/3cols?category=medical')"
+    >
+      <a routerLink="/shop/product/3cols?category=medical" class=""
+        >Para-Médical</a
+      >
+
+      <div class="megamenu megamenu-md para-medical">
+        <div class="row no-gutters">
+          <div class="col-md-8">
+            <div class="menu-col">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="menu-title">Shop with sidebar</div>
+
+                  <div class="menu-title">Shop no sidebar</div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="menu-title">Product Category</div>
+                  <div class="menu-title">Shop Pages</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="banner banner-overlay">
+              <a routerLink="/shop/product/list" class="banner banner-menu">
+                <img
+                  src="assets/images/menu/banner-1.jpg"
+                  alt="Banner"
+                  width="218"
+                  height="314"
+                />
+
+                <div class="banner-content banner-content-top">
+                  <div class="banner-title text-white">
+                    Last
+                    <br />Chance
+                    <br />
+                    <span>
+                      <strong>Sale</strong>
+                    </span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+
+    <li [class.active]="current.includes('/shop/product/3cols?category=bio')">
+      <a routerLink="/shop/product/3cols?category=bio" class="">Bio</a>
+
+      <div class="megamenu megamenu-md bio">
+        <div class="row no-gutters">
+          <div class="col-md-8">
+            <div class="menu-col">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="menu-title">Shop with sidebar</div>
+
+                  <div class="menu-title">Shop no sidebar</div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="menu-title">Product Category</div>
+                  <div class="menu-title">Shop Pages</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="banner banner-overlay">
+              <a routerLink="/shop/product/list" class="banner banner-menu">
+                <img
+                  src="assets/images/menu/banner-1.jpg"
+                  alt="Banner"
+                  width="218"
+                  height="314"
+                />
+
+                <div class="banner-content banner-content-top">
+                  <div class="banner-title text-white">
+                    Last
+                    <br />Chance
+                    <br />
+                    <span>
+                      <strong>Sale</strong>
+                    </span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</nav>

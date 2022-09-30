@@ -1,35 +1,56 @@
 <main class="main home-page skeleton-body">
   <div class="intro-slider-container">
-    <owl-carousel
+    <owl-carousel-o
       carouselClasses="owl-simple owl-light owl-nav-inside slider-container-1"
       [options]="introSlider"
     >
-      <div
-        class="intro-slide intro-slide1"
-        style="
-          background-image: url(assets/images/home/slides/slide-1.jpg);
+      <ng-container *ngFor="let promo of promotions">
+        <ng-template carouselSlide [id]="promo.slug">
+          <div
+            class="intro-slide intro-slide1"
+            [style.background-image]="
+              'url(' + promo.attributes.image?.data.attributes.url + ')'
+            "
+          >
+            <!-- ngStyle]="{ 'background-image': 'url(' +
+            promo.attributes.image?.data.attributes.url + ')' }" -->
+            <!-- style="
+          background-image: url(https://res.cloudinary.com/ds9akugwn/image/upload/v1664205415/physiolac_e240f7b555.jpg);
           background-color: #edf1f0;
-        "
-      >
-        <div
-          class="container intro-content"
-          contentAnim
-          aniName="fadeInUpShorter"
-        >
-          <h3 class="intro-subtitle">Deals and Promotions</h3>
-          <h1 class="intro-title text-secondary-dark font-weight-normal">
-            Wooden<br />Sideboard Table<br /><span class="text-primary"
-              ><sup>$</sup>149,99</span
+        " -->
+
+            <div
+              class="container intro-content"
+              contentAnim
+              aniName="fadeInUpShorter"
             >
-          </h1>
+              <h3 class="intro-subtitle">{{ promo.attributes.slogan }}</h3>
+              <h1 class="">
+                {{ promo.attributes.name }}<br /><span class="text-primary">{{
+                  promo.attributes.product?.data?.attributes.sale_price
+                    | currency: "DH"
+                }}</span>
+              </h1>
 
-          <a routerLink="/shop/sidebar/list" class="btn btn-outline-dark">
-            <span>Shop Now</span>
-            <i class="icon-long-arrow-right"></i>
-          </a>
-        </div>
-      </div>
-
+              <a
+                [routerLink]="getLinkOfPromo(promo).url"
+                [queryParams]="
+                  getLinkOfPromo(promo).hasParams
+                    ? {
+                        category: getLinkOfPromo(promo).params.value + ''
+                      }
+                    : null
+                "
+                class="btn btn-outline-dark"
+              >
+                <span>Achetez Maintenant</span>
+                <i class="icon-long-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </ng-template>
+      </ng-container>
+      <!--
       <div
         class="intro-slide intro-slide2 slide-image"
         style="
@@ -48,7 +69,7 @@
               Find Comfort<br />That Suits You.
             </h1>
 
-            <a routerLink="/shop/sidebar/list" class="btn btn-outline-dark">
+            <a routerLink="/shop/product/list" class="btn btn-outline-dark">
               <span>Shop Now</span>
               <i class="icon-long-arrow-right"></i>
             </a>
@@ -78,29 +99,25 @@
             </span>
           </h1>
 
-          <a routerLink="/shop/sidebar/list" class="btn btn-outline-dark">
+          <a routerLink="/shop/product/list" class="btn btn-outline-dark">
             <span>Shop Now</span>
             <i class="icon-long-arrow-right"></i>
           </a>
         </div>
-      </div>
-    </owl-carousel>
+      </div> -->
+    </owl-carousel-o>
   </div>
 
   <!-- <owl-carousel
     carouselClasses="brands-border owl-simple"
     [options]="brandSlider"
   >
-    <a href="javascript:;" class="brand">
-      <img
-        src="assets/images/brands/1.png"
-        alt="Brand Name"
-        width="101"
-        height="34"
-      />
-    </a>
+    <a href="javascript:;" class="brand" *ngFor="let cat of allCategories">
+      <img [src]="cat?.image?.url" alt="Brand Name" width="101" height="34" />
+      {{ cat.name }}
+    </a> -->
 
-    <a href="javascript:;" class="brand">
+  <!-- <a href="javascript:;" class="brand">
       <img
         src="assets/images/brands/2.png"
         alt="Brand Name"
@@ -152,8 +169,8 @@
         width="101"
         height="34"
       />
-    </a>
-  </owl-carousel> -->
+    </a> -->
+  <!-- </owl-carousel> -->
 
   <div class="mb-3 mb-lg-5"></div>
 
@@ -162,7 +179,7 @@
             <div class="row">
                 <div class="col-md-6 col-lg-5" contentAnim aniName="fadeInRightShorter">
                     <div class="banner banner-large">
-                        <a routerLink="/shop/sidebar/3cols">
+                        <a routerLink="/shop/product/3cols">
                             <img src="assets/images/home/banners/1-1.jpg" alt="Banner" width="470" height="510"
                                 style="background-color: #fcf8e7;">
                         </a>
@@ -174,7 +191,7 @@
 
                             <div class="banner-text text-secondary-dark font-weight-normal">from $19.99</div>
 
-                            <a routerLink="/shop/sidebar/3cols" class="btn btn-outline-dark">Shop Now<i
+                            <a routerLink="/shop/product/3cols" class="btn btn-outline-dark">Shop Now<i
                                     class="icon-long-arrow-right"></i></a>
                         </div>
                     </div>
@@ -182,7 +199,7 @@
 
                 <div class="col-md-6 col-lg-3" contentAnim>
                     <div class="banner">
-                        <a routerLink="/shop/sidebar/3cols">
+                        <a routerLink="/shop/product/3cols">
                             <img src="assets/images/home/banners/1-2.jpg" alt="Banner" width="290" height="510"
                                 style="background-color: #748787;">
                         </a>
@@ -193,7 +210,7 @@
                             <h3 class="banner-title text-white">Kitchenware</h3>
                             <div class="banner-text text-white font-weight-normal">from $39.00</div>
 
-                            <a routerLink="/shop/sidebar/3cols" class="btn btn-outline-white banner-link">Discover Now<i
+                            <a routerLink="/shop/product/3cols" class="btn btn-outline-white banner-link">Discover Now<i
                                     class="icon-long-arrow-right"></i></a>
                         </div>
                     </div>
@@ -203,7 +220,7 @@
                     <div class="row">
                         <div class="col-lg-12 col-md-6">
                             <div class="banner banner-sm">
-                                <a routerLink="/shop/sidebar/3cols">
+                                <a routerLink="/shop/product/3cols">
                                     <img src="assets/images/home/banners/1-3.jpg" alt="Banner" width="370" height="245"
                                         style="background-color: #ebf2df;">
                                 </a>
@@ -215,7 +232,7 @@
 
                                     <div class="banner-text font-weight-normal text-secondary-dark">up to 30% off
                                     </div>
-                                    <a routerLink="/shop/sidebar/3cols"
+                                    <a routerLink="/shop/product/3cols"
                                         class="btn btn-outline-dark banner-link">Discover Now<i
                                             class="icon-long-arrow-right"></i></a>
                                 </div>
@@ -223,7 +240,7 @@
                         </div>
                         <div class="col-lg-12 col-md-6">
                             <div class="banner banner-center">
-                                <a routerLink="/shop/sidebar/3cols">
+                                <a routerLink="/shop/product/3cols">
                                     <img src="assets/images/home/banners/1-4.jpg" alt="Banner" width="370" height="245"
                                         style="background-color: #f0f5f8;">
                                 </a>
@@ -235,7 +252,7 @@
 
                                     <div class="banner-text font-weight-normal text-secondary-dark">from $39.00
                                     </div>
-                                    <a routerLink="/shop/sidebar/3cols" class="btn btn-outline-dark banner-link">Shop
+                                    <a routerLink="/shop/product/3cols" class="btn btn-outline-dark banner-link">Shop
                                         Now<i class="icon-long-arrow-right"></i></a>
                                 </div>
                             </div>
@@ -263,7 +280,7 @@
               <h2 class="text-secondary-dark">Deal Of The Day</h2>
 
               <h3 class="product-title">
-                <a routerLink="/shop/sidebar/3cols">POÄNG</a>
+                <a routerLink="/shop/product/3cols">POÄNG</a>
               </h3>
 
               <div class="product-price">
@@ -279,7 +296,7 @@
               >
               </molla-count-down>
 
-              <a routerLink="/shop/sidebar/3cols" class="btn btn-outline-dark">
+              <a routerLink="/shop/product/3cols" class="btn btn-outline-dark">
                 <span>Shop Now</span><i class="icon-long-arrow-right"></i>
               </a>
             </div>
@@ -297,7 +314,7 @@
 
         <div class="col-lg-3 col-md-4" contentAnim aniName="fadeInLeftShorter">
           <div class="banner">
-            <a href="/shop/sidebar/3cols" class="h-100">
+            <a href="/shop/product/3cols" class="h-100">
               <img
                 src="assets/images/home/banners/2-2.jpg"
                 alt="Banner"
@@ -315,7 +332,7 @@
                 $49.99
               </div>
               <a
-                href="/shop/sidebar/3cols"
+                href="/shop/product/3cols"
                 class="btn btn-outline-white banner-link"
                 >Shop Now<i class="icon-long-arrow-right"></i
               ></a>
@@ -330,53 +347,69 @@
     [products]="products | attrFilter: 'top'"
     [loaded]="loaded"
   ></molla-top-collection>
+  <div class="text-center mb-3">
+    <!-- <a
+      routerLink="/shop/product/3cols"
+      class="btn btn-outline-dark banner-link btn-more"
+      ><span>Tout voir</span><i class="icon-long-arrow-right"></i
+    ></a> -->
+    <div class="btn-wrap">
+      <a
+        routerLink="/shop/product/3cols"
+        class="btn btn-outline-dark btn-rounded"
+        ><span>Tout voir</span>
+        <i class="icon-long-arrow-right"></i>
+      </a>
+    </div>
+  </div>
 
   <div class="container">
     <hr />
   </div>
 
-  <molla-blog-collection
-    [posts]="posts"
-    [loaded]="loaded"
-  ></molla-blog-collection>
+  <h4 id="home_categories" class="text-center mb-3">Explorer par Catégorie</h4>
+
+  <owl-carousel-o
+    [options]="customOptions"
+    id="slider-category"
+    carouselClasses="owl-simple owl-light owl-nav-inside slider-category"
+    data="bannerSlider"
+    #owlCar
+  >
+    <ng-container *ngFor="let cat of allCategories">
+      <ng-template carouselSlide [id]="cat.id">
+        <div class="banner banner-cat categories">
+          <a routerLink="/shop/product/list">
+            <molla-image
+              [src]="cat.image?.url"
+              [id]="'category'"
+              alt="Banner"
+              width="100"
+              height="100"
+            ></molla-image>
+          </a>
+
+          <div class="banner-content banner-content-static text-center">
+            <h5>{{ cat.name }}</h5>
+
+            <h4 class="banner-subtitle">18 Produits</h4>
+          </div>
+        </div>
+      </ng-template>
+    </ng-container>
+  </owl-carousel-o>
 
   <div class="icon-boxes-container">
     <div class="container">
       <div class="row">
-        <div class="col-sm-6 col-lg-3" contentAnim aniName="fadeInLeftShorter">
+        <div class="col-sm-6 col-lg-6" contentAnim aniName="fadeInLeftShorter">
           <div class="icon-box icon-box-side">
             <span class="icon-box-icon text-dark">
-              <i class="icon-rocket"></i>
+              <i class="icon-whatsapp"></i>
             </span>
             <div class="icon-box-content">
-              <h3 class="icon-box-title">Free Shipping</h3>
-              <p>orders $50 or more</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-sm-6 col-lg-3" contentAnim aniName="fadeInLeftShorter">
-          <div class="icon-box icon-box-side">
-            <span class="icon-box-icon text-dark">
-              <i class="icon-rotate-left"></i>
-            </span>
-
-            <div class="icon-box-content">
-              <h3 class="icon-box-title">Free Returns</h3>
-              <p>within 30 days</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-sm-6 col-lg-3" contentAnim aniName="fadeInRightShorter">
-          <div class="icon-box icon-box-side">
-            <span class="icon-box-icon text-dark">
-              <i class="icon-info-circle"></i>
-            </span>
-
-            <div class="icon-box-content">
-              <h3 class="icon-box-title">Get 20% Off 1 Item</h3>
-              <p>When you sign up</p>
+              <h3 class="icon-box-title">Nous contacter sur</h3>
+              <p>+212620744118</p>
             </div>
           </div>
         </div>
@@ -388,8 +421,8 @@
             </span>
 
             <div class="icon-box-content">
-              <h3 class="icon-box-title">We Support</h3>
-              <p>24/7 amazing services</p>
+              <h3 class="icon-box-title">Nous supportons</h3>
+              <p>Des services exceptionnels 24h/7j</p>
             </div>
           </div>
         </div>
@@ -397,41 +430,5 @@
     </div>
   </div>
 
-  <div
-    class="footer-newsletter bg-image"
-    style="background-image: url(assets/images/home/banners/3.jpg)"
-  >
-    <div class="container">
-      <div class="heading text-center" contentAnim aniName="blurIn">
-        <h3 class="title">Get The Latest Deals</h3>
-        <p class="title-desc">
-          and receive <span>$20 coupon</span> for first shopping
-        </p>
-      </div>
-
-      <div class="row">
-        <div
-          class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3"
-        >
-          <form action="#">
-            <div class="input-group">
-              <input
-                type="email"
-                class="form-control"
-                placeholder="Enter your Email Address"
-                aria-label="Email Adress"
-                aria-describedby="newsletter-btn"
-                required
-              />
-              <div class="input-group-append">
-                <button class="btn btn-white" type="submit" id="newsletter-btn">
-                  <span>Subscribe</span><i class="icon-long-arrow-right"></i>
-                </button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
+  <!-- <div> -->
 </main>

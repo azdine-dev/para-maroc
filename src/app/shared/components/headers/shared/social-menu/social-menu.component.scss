@@ -1,0 +1,45 @@
+.social-menu {
+  padding-bottom: 1.1em;
+  font-size: xx-large;
+  display: flex;
+}
+
+.circle-image-fb {
+  display: flex;
+  overflow: hidden;
+  width: 120%;
+  margin-top: 55%;
+  margin-left: 178%;
+  position: relative;
+}
+.circle-image-fb img {
+  width: 58%;
+  height: 100%;
+  position: unset;
+  margin-left: 3px;
+  left: 0;
+  clip-path: circle(50%);
+  object-fit: cover;
+  display: flex;
+  align-items: flex-end;
+}
+
+.circle-image-ig {
+  display: flex;
+  overflow: hidden;
+  width: 60%; /* padding-bottom: 33%; */
+  margin-top: 21%;
+  margin-left: 82%;
+  position: relative;
+}
+.circle-image-ig img {
+  width: 45%;
+  height: 100%;
+  position: unset;
+  // margin-left: 3px;
+  left: 0;
+  clip-path: circle(50%);
+  object-fit: cover;
+  display: flex;
+  align-items: flex-end;
+}

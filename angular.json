@@ -32,7 +32,11 @@
               "src/assets/css/fonts-molla.min.css",
               "src/styles.scss",
               "./node_modules/ngx-sharebuttons/themes/circles/circles-light-theme.scss",
-              "./node_modules/ngx-sharebuttons/themes/modern/modern-dark-theme.scss"
+              "./node_modules/ngx-sharebuttons/themes/modern/modern-dark-theme.scss",
+              "./node_modules/slick-carousel/slick/slick.scss",
+              "./node_modules/slick-carousel/slick/slick-theme.scss",
+              "./node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.carousel.min.css",
+              "./node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.theme.default.min.css"
             ],
             "scripts": [
               "src/assets/js/jquery.min.js",
@@ -41,7 +45,9 @@
               "src/assets/js/bootstrap.bundle.min.js",
               "./node_modules/masonry-layout/dist/masonry.pkgd.min.js",
               "./node_modules/isotope-layout/dist/isotope.pkgd.min.js",
-              "./node_modules/imagesloaded/imagesloaded.pkgd.js"
+              "./node_modules/imagesloaded/imagesloaded.pkgd.js",
+              "./node_modules/jquery/dist/jquery.min.js",
+              "./node_modules/slick-carousel/slick/slick.min.js"
             ]
           },
           "configurations": {
@@ -75,7 +81,15 @@
                   "maximumError": "4kb"
                 }
               ]
-            }
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+          }
           }
         },
         "serve": {
@@ -86,6 +100,9 @@
           "configurations": {
             "production": {
               "browserTarget": "difussion:build:production"
+            },
+            "development": {
+              "browserTarget": "difussion:build:development"
             }
           }
         },

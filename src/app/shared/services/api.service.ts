@@ -37,7 +37,7 @@ export class ApiService {
 
     temp += '&demo=' + environment.demo;
 
-    return this.http.get(`${environment.SERVER_URL}/${temp}`);
+    return this.http.get(`${environment.SERVER_URL}/api/${temp}`);
   }
 
   /**
@@ -105,7 +105,7 @@ export class ApiService {
     cat = null
   ): Observable<any> {
     return this.http.get(
-      `${environment.SERVER_URL}/shop?perPage=5&searchTerm=${searchTerm}&category=${cat}&demo=${environment.demo}`
+      `${environment.SERVER_URL}/api/shop?perPage=5&searchTerm=${searchTerm}&demo=${environment.demo}`
     );
   }
 
@@ -121,5 +121,20 @@ export class ApiService {
    */
   public fetchElementBlog(): Observable<any> {
     return this.http.get(`${environment.SERVER_URL}/elements/blogs`);
+  }
+
+  public getCategoryData(category: string): Observable<any> {
+    return this.http.get(
+      `${environment.SERVER_URL}/api/product-categories/categ/${category}`
+    );
+  }
+  public getAllCategories(): Observable<any> {
+    return this.http.get(
+      `${environment.SERVER_URL}/api/product-categories/parents`
+    );
+  }
+
+  public getAllPromotions(): Observable<any> {
+    return this.http.get(`${environment.SERVER_URL}/api/promotions?populate=*`);
   }
 }

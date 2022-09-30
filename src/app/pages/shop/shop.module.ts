@@ -23,34 +23,37 @@ import { MarketPageComponent } from './market/market.component';
 import { ShopListOneComponent } from './shared/list/shop-list-one/shop-list-one.component';
 import { ShopListTwoComponent } from './shared/list/shop-list-two/shop-list-two.component';
 import { ShopListThreeComponent } from './shared/list/shop-list-three/shop-list-three.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FieldErrorDisplayComponent } from '../../shared/components/field-error-display/field-error-display.component';
 
-@NgModule( {
-	declarations: [
-		SidebarPageComponent,
-		NosidebarPageComponent,
-		CartComponent,
-		WishlistComponent,
-		CheckoutComponent,
-		DashboardComponent,
-		ProductCategoryBoxedPageComponent,
-		ProductCategoryFluidPageComponent,
-		ShopSidebarOneComponent,
-		ShopSidebarTwoComponent,
-		ShopSidebarThreeComponent,
-		ShopListOneComponent,
-		ShopListTwoComponent,
-		ShopListThreeComponent,
-		MarketPageComponent,
-	],
-	imports: [
-		CommonModule,
-		SharedModule,
-		ShopRoutingModule,
-		RouterModule,
-		NgbModule,
-		OwlModule,
-		NouisliderModule
-	]
-} )
-
-export class ShopModule { }
+@NgModule({
+  declarations: [
+    SidebarPageComponent,
+    NosidebarPageComponent,
+    CartComponent,
+    WishlistComponent,
+    CheckoutComponent,
+    DashboardComponent,
+    ProductCategoryBoxedPageComponent,
+    ProductCategoryFluidPageComponent,
+    ShopSidebarOneComponent,
+    ShopSidebarTwoComponent,
+    ShopSidebarThreeComponent,
+    ShopListOneComponent,
+    ShopListTwoComponent,
+    ShopListThreeComponent,
+    MarketPageComponent,
+    FieldErrorDisplayComponent,
+  ],
+  imports: [
+    CommonModule,
+    SharedModule,
+    ShopRoutingModule,
+    RouterModule,
+    NgbModule,
+    OwlModule,
+    NouisliderModule,
+    ReactiveFormsModule,
+  ],
+})
+export class ShopModule {}

@@ -63,7 +63,7 @@
     <div class="product-cat">
       <span *ngFor="let cat of product.categories; let i = index">
         <a
-          [routerLink]="['/shop/sidebar/list']"
+          [routerLink]="['/shop/product/list']"
           [queryParams]="{ category: cat.slug }"
           >{{ cat.name }}</a
         >{{ i < product.categories.length - 1 ? "," : "" }}
@@ -102,11 +102,11 @@
         <ng-template #elseBlock>
           <div class="product-price">
             <span class="new-price">
-            {{ minPrice.toFixed(2) | currency: " MAD " }}
+              {{ minPrice.toFixed(2) | currency: " MAD " }}
             </span>
             <span class="old-price">
-            {{ maxPrice.toFixed(2) | currency: " MAD " }}
-          </span>
+              {{ maxPrice.toFixed(2) | currency: " MAD " }}
+            </span>
           </div>
         </ng-template>
       </ng-template>
